@@ -15,7 +15,7 @@ Use `movie-this` to search the omdb database.
 Use `spotify-this-song` to find a song on spotify.
 Use `do-what-it-says` to use a random function.
 
-![bandsintown]("./images/bandsintown.png")
-![bandsintown]("./images/spotify.png")
-![bandsintown]("./images/omdb.png")
-![bandsintown]("./images/doIt.png")
+![bandsintown](images/bandsintown.png)
+![bandsintown](images/spotify.png)
+![bandsintown](images/omdb.png)
+![bandsintown](images/doIt.png)
