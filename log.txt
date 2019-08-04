@@ -19,3 +19,26 @@ Location: Katowice
 Date: 2019-08-04T19:00:41
 ------------------------------------------------------------
 
+Venue: OFF Festival
+
+Location: Katowice
+
+Date: function hooks () {
+        return hookCallback.apply(null, arguments);
+    }2019-08-04T19:00:41
+------------------------------------------------------------
+
+Venue: OFF Festival
+
+Location: Katowice
+
+Date: 08/03/20192019-08-04T19:00:41
+------------------------------------------------------------
+
+Venue: OFF Festival
+
+Location: Katowice
+
+Date: 08/04/2019
+------------------------------------------------------------
+

@@ -34,11 +34,12 @@ function concertThis(artist){
         var jsonData = response.data[0];
 
         //console.log(jsonData);
+        //moment = moment().format("L")
 
         var concertData = [
             "Venue: " + jsonData.venue.name,
             "Location: " + jsonData.venue.city,
-            "Date: " + jsonData.datetime
+            "Date: " + moment(jsonData.datetime).format("L")
         ].join("\n\n");
 
         fs.appendFile("log.txt", concertData + divider, function(err) {
