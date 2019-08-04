@@ -42,3 +42,37 @@ Location: Katowice
 Date: 08/04/2019
 ------------------------------------------------------------
 
+Movie Title: Mr. Nobody
+
+Release Year: 2009
+
+IMDB Rating: 7.8
+
+Rotten Tomatoes Rating: 67%
+
+Country: Belgium, Germany, Canada, France, USA, UK
+
+Language: English, Mohawk
+
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+------------------------------------------------------------
+
+Movie Title: The Shawshank Redemption
+
+Release Year: 1994
+
+IMDB Rating: 9.3
+
+Rotten Tomatoes Rating: 91%
+
+Country: USA
+
+Language: English
+
+Plot: Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.
+
+Actors: Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler
+------------------------------------------------------------
+

@@ -7,8 +7,9 @@ var moment = require('moment');
 var fs = require("fs");
 var command = process.argv[2];
 var input = process.argv[3];
+var results = [];
 
-var search = function (command, input) {
+var options = function (command, input) {
     switch (command) {
         case "concert-this":
             concertThis(input);
@@ -25,12 +26,12 @@ var search = function (command, input) {
     }
 }
 
-function concertThis(artist){
+function concertThis(artist) {
     var divider = "\n------------------------------------------------------------\n\n";
 
     var URL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
-    axios.get(URL).then(function(response){
+    axios.get(URL).then(function (response) {
         var jsonData = response.data[0];
 
         //console.log(jsonData);
@@ -42,14 +43,68 @@ function concertThis(artist){
             "Date: " + moment(jsonData.datetime).format("L")
         ].join("\n\n");
 
-        fs.appendFile("log.txt", concertData + divider, function(err) {
+        fs.appendFile("log.txt", concertData + divider, function (err) {
             if (err) throw err;
             console.log(concertData);
-          });
+        });
+    })
+}
+
+function spotifyThis(song) {
+    var divider = "\n------------------------------------------------------------\n\n";
+
+    if (!song) {
+        song = "The Sign";
+    }
+
+    spotify
+        .search({ type: 'track', query: song })
+        .then(function (response) {
+            // console.log(response);
+
+
+
+            fs.appendFile("log.txt", results + divider, function (err) {
+                if (err) throw err;
+                console.log(results);
+            });
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+}
+
+function movieThis(movie) {
+    if(!movie){
+        movie = "Mr Nobody"
+    }
+    var divider = "\n------------------------------------------------------------\n\n";
+    var URL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+    axios.get(URL).then(function (response) {
+        var jsonData = response.data;
+        //console.log(jsonData);
+        var movieData = [
+            "Movie Title: " + jsonData.Title,
+            "Release Year: " + jsonData.Year,
+            "IMDB Rating: " + jsonData.imdbRating,
+            "Rotten Tomatoes Rating: " + jsonData.Ratings[1].Value,
+            "Country: " + jsonData.Country,
+            "Language: " + jsonData.Language,
+            "Plot: " + jsonData.Plot,
+            "Actors: " + jsonData.Actors
+        ].join("\n\n");
+
+        fs.appendFile("log.txt", movieData + divider, function (err) {
+            if (err) throw err;
+            console.log(movieData);
+        });
     })
 }
 
 
 
 
-search(command, input);
+
+options(command, input);
