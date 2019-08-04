@@ -6,8 +6,7 @@ var spotify = new Spotify(keys.spotify);
 var moment = require('moment');
 var fs = require("fs");
 var command = process.argv[2];
-var input = process.argv[3];
-var results = [];
+var input = process.argv[3]
 
 var options = function (command, input) {
     switch (command) {
@@ -61,14 +60,20 @@ function spotifyThis(song) {
         .search({ type: 'track', query: song })
         .then(function (response) {
             // console.log(response);
+            for (var i =0; i < 5; i++){
+                var data = response.tracks.items[i];
+                var tracks = [
+                    "Artist(s): " + data.artists[0].name,
+                    "Song Name: " + data.name,
+                    "Album Name: " + data.album.name,
+                    "Preview Link: " + data.preview_url
+                ].join("\n\n");
 
-
-
-            fs.appendFile("log.txt", results + divider, function (err) {
-                if (err) throw err;
-                console.log(results);
-            });
-
+                fs.appendFile("log.txt", tracks + divider, function (err) {
+                    if (err) throw err;
+                    console.log(tracks);
+                });
+            }
         })
         .catch(function (err) {
             console.log(err);
@@ -103,8 +108,15 @@ function movieThis(movie) {
     })
 }
 
-
-
-
+function doIt(){
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) throw error;
+        random = data.split(",");
+        
+        if (random[0]== "spotify-this-song") {
+           spotifyThis(random[1])
+        }
+    });
+}
 
 options(command, input);
